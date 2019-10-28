@@ -65,7 +65,7 @@ make while loops in main to make a sort of program menu so you can switch betwee
         int menuNumber;
 
         while (true) {
-            System.out.print("What menu number would you like to order(-1 to quit)?: ");
+            System.out.print("What menu number would you like to order(-1 to end order)?: ");
             menuNumber = input.nextInt();
             if (menuNumber == -1) {
                 break;
