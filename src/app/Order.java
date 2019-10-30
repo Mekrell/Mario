@@ -14,12 +14,12 @@ import java.util.List;
  */
 public class Order {
     List<Pizza> order;
-    public static double timeOfPickup;
-    public static int id = 0;
+    public double timeOfPickup;
+    public int id;
 
     public Order() {
         order = new ArrayList<>();
-        
+        id = idFactory.getOrderId();
     }
 
     public double getTimeOfPickup() {
@@ -45,4 +45,10 @@ public class Order {
             
         return sum;
     }
+
+    @Override
+    public String toString() {
+        return "\nOrder: " + order + "\n Time of pickup: " + timeOfPickup + "\n Id: " + id;
+    }
+    
 }

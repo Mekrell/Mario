@@ -38,13 +38,22 @@ public class OrderList {
         orderListCurrent.remove(order);
         orderListOld.add(order);
     }
-    public double getOrderListCurrentTotal() {
+    public double getOrderListOldTotal() {
         double sum=0;
-        for(Order order: orderListCurrent){
+        for(Order order: orderListOld){
+            
             sum=sum + order.getOrderTotal();
         }
             
         return sum;
+    }
+    @Override
+    public String toString() {
+        String result="";
+        for(Order order : orderListCurrent){
+            result+=order.toString() + "\n";
+        }
+        return result;
     }
 }
 
