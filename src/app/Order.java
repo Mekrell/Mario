@@ -1,31 +1,43 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package app;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
- *
  * @author Rasmus
+ * @author Mia
+ * @author Andreas
+ * @author Emilie
  */
 public class Order {
+// En arrayList, et ID og bestillingstiden    
     List<Pizza> order;
-    public double timeOfPickup;
     public int id;
+    private String orderTime;
 
     public Order() {
         order = new ArrayList<>();
         id = idFactory.getOrderId();
     }
-
-    public double getTimeOfPickup() {
-        return timeOfPickup;
+    
+    public void setTimeOfPickup(){
+        Scanner input = new Scanner(System.in);
+        // fx 1915
+        int Time = input.nextInt();
+        input.nextLine();
+        
+        int hour = Time/100;
+        int minutes = Time%100;
+        String finalTime = hour + ":" + minutes;
+        orderTime = finalTime;
     }
 
+    public String getOrderTime() {
+        return orderTime;
+    }
+    
     public int getId() {
         return id;
     }
@@ -37,6 +49,7 @@ public class Order {
     public void addPizza(Pizza pizza) {
         order.add(pizza);
     }
+    //giver det totale beløb per ordre
     public double getOrderTotal() {
         double sum=0;
         for(Pizza pizza: order){
@@ -48,7 +61,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "\nOrder: " + order + "\n Time of pickup: " + timeOfPickup + "\n Id: " + id;
+        return "\nOrder: " + order + "\nTime of pickup: " + orderTime + "\n Id: " + id;
     }
     
 }

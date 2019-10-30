@@ -6,9 +6,12 @@
 package app;
 
 /**
- *
  * @author Rasmus
+ * @author Mia
+ * @author Andreas
+ * @author Emilie
  */
+//laver nyt ID til ordrene
 public class idFactory {
     static int orderId = 0;
     public static int getOrderId() {

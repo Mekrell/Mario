@@ -1,28 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package app;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author Rasmus
+ * @author Mia
+ * @author Andreas
+ * @author Emilie
  */
 public class OrderList {
+// Laver 2 arrayLister - en for de nuværende ordre og en for de tidligere ordre:
     public List<Order> orderListCurrent;
     public List<Order> orderListOld;
     
-
+// Konstruktor:
     public OrderList() {
         orderListCurrent = new ArrayList<>();
         orderListOld = new ArrayList<>();
-        
     }
-
+// Getterer:
     public List<Order> getOrderListCurrent() {
         return orderListCurrent;
     }
@@ -30,14 +28,17 @@ public class OrderList {
         return orderListOld;
     }
 
-    
+// Når der skal tilføjes ordre ligges de på orderListCurrent  
     public void addOrder(Order order) {
         orderListCurrent.add(order);
     }
+// Når de skal fjernes, fjernes de fra orderListCurrent og tilføjet til orderListOld  
     public void removeOrder(Order order) {
         orderListCurrent.remove(order);
         orderListOld.add(order);
     }
+    
+// Følgende giver omsætningen
     public double getOrderListOldTotal() {
         double sum=0;
         for(Order order: orderListOld){
@@ -47,6 +48,7 @@ public class OrderList {
             
         return sum;
     }
+    
     @Override
     public String toString() {
         String result="";
